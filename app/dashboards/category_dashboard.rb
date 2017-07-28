@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class BookDashboard < Administrate::BaseDashboard
+class CategoryDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -9,12 +9,9 @@ class BookDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    name: Field::String,
-    description: Field::Text,
-    image_url: ImageField,
+    label: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    categories: Field::HasMany,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -23,35 +20,26 @@ class BookDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :name,
-    :description,
-    :image_url,
-    :categories,
+    :label,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :name,
-    :description,
-    :image_url,
-    :categories,
+    :label,
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :name,
-    :description,
-    :image_url,
-    :categories,
+    :label,
   ].freeze
 
-  # Overwrite this method to customize how books are displayed
+  # Overwrite this method to customize how categories are displayed
   # across all pages of the admin dashboard.
   #
   def display_resource(resource)
-    resource.name
+    resource.label
   end
 end

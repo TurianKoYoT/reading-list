@@ -25,3 +25,10 @@ Book.create!(name: Faker::Book.title,
                description: description,
                image_url: image_url)
 end
+
+Category.create!(label: "Science fiction")
+Category.create!(label: "Drama")
+Category.create!(label: "Kid's stories")
+Category.create!(label: "Fiction")
+Category.create!(label: "Real-life story")
+Category.create!(label: "Idiotism")

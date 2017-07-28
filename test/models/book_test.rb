@@ -3,9 +3,8 @@ require 'test_helper'
 class BookTest < ActiveSupport::TestCase
   
   def setup
-    @book = Book.new(name: "The Adventures of Tom Sawyer", 
-                     description: "The Adventures of Tom Sawyer by Mark Twain is an 1876 novel about a young boy growing up along the Mississippi River. It is set in the fictional town of St. Petersburg, inspired by Hannibal, Missouri, where Twain lived.",
-                     image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Tom_Sawyer_1876_frontispiece.jpg/800px-Tom_Sawyer_1876_frontispiece.jpg")
+    @book = books(:TomSawyer)
+    @other_book = books(:TheCaptainDaughter)
   end
   
   test "should be valid" do
@@ -15,6 +14,11 @@ class BookTest < ActiveSupport::TestCase
   test "name should be present" do
     @book.name = ""
     assert_not @book.valid?
+  end
+  
+  test "name should be unique" do
+    @other_book.name = "Adventures of Tom Sawyer"
+    assert_not @other_book.valid?
   end
   
   test "description should be present" do

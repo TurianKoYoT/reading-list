@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'admin/books#index'
   namespace :admin do
     resources :books
+    resources :categories
 
     root to: "books#index"
   end
