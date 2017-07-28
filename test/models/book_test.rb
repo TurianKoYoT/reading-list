@@ -11,13 +11,13 @@ class BookTest < ActiveSupport::TestCase
     assert @book.valid?
   end
   
-  test "name should be present" do
-    @book.name = ""
+  test "title should be present" do
+    @book.title = ""
     assert_not @book.valid?
   end
   
-  test "name should be unique" do
-    @other_book.name = "Adventures of Tom Sawyer"
+  test "title should be unique" do
+    @other_book.title = "Adventures of Tom Sawyer"
     assert_not @other_book.valid?
   end
   
@@ -32,12 +32,12 @@ class BookTest < ActiveSupport::TestCase
   end
   
   test "name shouldn't be too long" do
-    @book.name = "a" * 51
+    @book.title = "a" * 51
     assert_not @book.valid?
   end
   
   test "description shouldn't be too long" do
-    @book.name = "a" * 1001
+    @book.description = "a" * 1001
     assert_not @book.valid?
   end
 
