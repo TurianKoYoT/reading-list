@@ -5,17 +5,49 @@
 @import "neat";
 @import "base/base";
 
-$neat-grid: (
-  columns: 12,
-  gutter: 20px,
-);
+.filter_container {
+  @include grid-container;
+  
+  #book_category {
+    @include grid-column(5);
+  }
+  
+  #search {
+    @include grid-column(5);
+  }
+  
+  #submit_button {
+    @include grid-column(2);
+  }
+}
+
+input,
+select {
+  height: 3rem;
+}
 
 .books {
-  
+  @include grid-column(12);
 }
 
-.wrapper {
-@include grid-container;
-.primary { @include grid-column(8); }
-.secondary { @include grid-column(4); }
+ul {
+  -moz-column-count: 3;
+  -webkit-column-count: 3;
+  column-count: 3;
 }
+
+#head_container {
+  @include grid-container;
+  margin-top: 1%;
+  
+  h1 {
+    @include grid-column(10);
+    font-size: 3em;
+    text-align: center;
+  }  
+  .navigation {
+    @include grid-column(2);
+    text-align: right;
+  }
+}
+
