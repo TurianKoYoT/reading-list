@@ -41,8 +41,13 @@ class BookTest < ActiveSupport::TestCase
     assert_not @book.valid?
   end
 
-  #test "image_url should be valid (check for presence of http/https)" do
-  #  @book.image_url = "mage"
-  #  assert_not @book.valid?
-  #end
+  test "author_id should be present" do
+    @book.authors = []
+    assert_not @book.valid?
+  end
+  
+  test "category_id should be present" do
+    @book.categories = []
+    assert_not @book.valid?
+  end
 end
