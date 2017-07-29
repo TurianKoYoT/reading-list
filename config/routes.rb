@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'admin/books#index'
+  resources :books, only: [:index, :show]
+  root 'books#index'
   namespace :admin do
     resources :books
     resources :categories

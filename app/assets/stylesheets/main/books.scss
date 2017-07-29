@@ -1,0 +1,21 @@
+// Place all the styles related to the Books controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bourbon/bourbon";
+@import "neat";
+@import "base/base";
+
+$neat-grid: (
+  columns: 12,
+  gutter: 20px,
+);
+
+.books {
+  
+}
+
+.wrapper {
+@include grid-container;
+.primary { @include grid-column(8); }
+.secondary { @include grid-column(4); }
+}
