@@ -7,5 +7,11 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    @authors = @book.authors
+    @categories = @book.categories
+  end
+  
+  def hello
+    put 'hello'
   end
 end

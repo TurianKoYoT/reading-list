@@ -1,1 +1,27 @@
-<h1><%= @book.title %></h1>
+<div class="head_container">
+  <h1><%= @book.title %></h1>
+  <strong class="navigation"><%= link_to "Book Index", root_path %></strong>
+</div>
+
+<div class="book_container">
+  <%= image_tag(@book.image_url, class: "image_field")  %>
+  <div class= "book_information">
+    <p><strong>Title:</strong> <%= @book.title %></p>
+    <p><strong>Description:</strong> <%= @book.description %></p>
+    <p><strong><%= pluralize(@authors.size, "author")%>:</strong>
+      <ul class="authors">
+        <% @authors.each do |c| %>
+          <li><%= c.name %></li>
+        <% end %>
+      </ul>
+    </p>
+    <p><strong><%= pluralize(@categories.size, "category")%>:</strong>
+      <ul class="categories">
+        <% @categories.each do |c| %>
+          <li><%= c.label %></li>
+        <% end %>
+      </ul>
+    </p>
+  </div>
+</div>
+

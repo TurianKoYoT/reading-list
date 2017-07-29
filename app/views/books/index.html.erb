@@ -1,9 +1,9 @@
-<div id="head_container">
-  <h1 id="index head">Book list</h1>
+<div class="head_container">
+  <h1>Book list</h1>
   <strong class="navigation"><%= link_to "Dashboards", admin_root_path %></strong>
 </div>
 
-<div class="filter_container">
+<div class="book_container">
   <%= form_for books_path, {:method => :get} do %>
       <%= select "book", "category", options_for_select(Category.all.collect{ |c| c.label }, selected: params.dig(:book, :category)), { include_blank: true } %>
       <%= text_field_tag :search, params[:search] %>
